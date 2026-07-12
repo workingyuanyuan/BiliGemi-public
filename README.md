@@ -1,6 +1,6 @@
-# BiliGemi
+# BiliGemi - BiliBili x Gemini B站視頻摘要
 
-極致輕量化的 B 站影片字幕與觀眾評論 AI 摘要瀏覽器擴充功能，支援 Chrome 內置 AI (Gemini Nano) 與多種自訂 API 伺服器 (OpenAI, DeepSeek, 智譜 GLM, 月之暗面 Moonshot, OpenRouter 等)。
+輕量化的 B 站影片字幕與觀眾評論 AI 摘要工具，支援 Chrome 內置 AI 與自訂 API 伺服器。
 
 ---
 
