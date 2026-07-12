@@ -2,6 +2,8 @@
 
 輕量化的 B 站影片字幕與觀眾評論 AI 摘要工具，支援 Chrome 內置 AI 與自訂 API 伺服器。
 
+👉 **[BiliGemi 官方產品首頁](https://workingyuanyuan.github.io/BiliGemi-public/)**
+
 ---
 
 ## 🌟 核心特色

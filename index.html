@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiliGemi - 一鍵總結視頻字幕和觀眾評論</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --accent-color: #0071e3;
+            --accent-hover: #0077ed;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            scroll-behavior: smooth;
+            height: 100vh;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        section {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 6rem;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            line-height: 1.5;
+            color: var(--text-secondary);
+            font-weight: 400;
+            max-width: 500px;
+        }
+
+        /* Buttons */
+        .cta-container {
+            margin-top: 2.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border-radius: 980px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: scale(1.02);
+        }
+
+        /* Hero Section */
+        #hero .container {
+            flex-direction: column;
+            text-align: center;
+            gap: 2rem;
+        }
+        
+        #hero p {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #hero .cta-container {
+            justify-content: center;
+        }
+
+        #hero .icon {
+            width: 140px;
+            height: 140px;
+            border-radius: 32px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 1rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Feature Sections */
+        .feature-text {
+            flex: 1;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .feature-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-image {
+            flex: 1.2;
+            position: relative;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s;
+        }
+
+        .feature-image.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            object-fit: cover;
+            max-height: 70vh;
+        }
+
+        /* Alternate layout for even sections */
+        section:nth-child(even) .container {
+            flex-direction: row-reverse;
+        }
+
+        /* Footer inside last section */
+        .footer {
+            position: absolute;
+            bottom: 2rem;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .container, section:nth-child(even) .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .feature-image {
+                flex: none;
+                width: 100%;
+                order: 1;
+            }
+
+            .feature-text {
+                flex: none;
+                order: 2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature-image img {
+                max-height: 40vh;
+            }
+            
+            .cta-container {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            #hero .icon {
+                width: 100px;
+                height: 100px;
+                border-radius: 24px;
+            }
+            
+            p {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Section 1: Hero -->
+    <section id="hero">
+        <div class="container">
+            <img src="assets/icon.png" alt="BiliGemi Icon" class="icon feature-image visible">
+            <div class="feature-text visible">
+                <h1>BiliGemi</h1>
+                <p>bilibili x Gemini B站視頻摘要</p>
+                <div class="cta-container">
+                    <a href="TODO_CHROME_WEB_STORE_URL" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Add to Chrome</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Hover to show button -->
+    <section id="feature-1">
+        <div class="container">
+            <div class="feature-text">
+                <h2>一鍵召喚，智能摘要</h2>
+                <p>滑鼠輕觸影片，AI 摘要按鈕即刻浮現。不干擾觀看體驗，需要時隨時為你待命。</p>
+            </div>
+            <div class="feature-image">
+                <img src="assets/1.png" alt="Hover to show BiliGemi button">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Sidebar summary -->
+    <section id="feature-2">
+        <div class="container">
+            <div class="feature-text">
+                <h2>影片精華，一目了然</h2>
+                <p>點擊按鈕，側邊欄瞬間展開。AI 快速提煉影片核心觀點與大綱，幫你省下寶貴時間，重點不漏接。</p>
+            </div>
+            <div class="feature-image">
+                <img src="assets/2.png" alt="Sidebar with video summary">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Comment summary -->
+    <section id="feature-3">
+        <div class="container">
+            <div class="feature-text">
+                <h2>觀眾評論，一鍵省流</h2>
+                <p>影片太長、評論太多？一鍵總結熱門評論，快速掌握大眾真實看法與情緒，洞悉社群討論熱點。</p>
+            </div>
+            <div class="feature-image">
+                <img src="assets/3.png" alt="Sidebar with comment summary">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Settings -->
+    <section id="feature-4">
+        <div class="container">
+            <div class="feature-text">
+                <h2>靈活自訂，掌控自如</h2>
+                <p>支援本地 AI 處理，保護隱私更安心；亦可接入各大主流自訂 API。隨心調整提示詞，打造最懂你的專屬摘要助理。</p>
+            </div>
+            <div class="feature-image">
+                <img src="assets/4.png" alt="Settings panel">
+            </div>
+        </div>
+        <div class="footer">
+            <a href="./privacy.html">Privacy Policy</a>
+            <a href="https://github.com/workingyuanyuan" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+            <span>&copy; 2026 BiliGemi</span>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const section = entry.target;
+                    const text = section.querySelector('.feature-text');
+                    const img = section.querySelector('.feature-image');
+                    
+                    if (text) text.classList.add('visible');
+                    if (img) img.classList.add('visible');
+                    
+                    // Stop observing once visible to prevent animation replay
+                    observer.unobserve(section);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section:not(#hero)').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
