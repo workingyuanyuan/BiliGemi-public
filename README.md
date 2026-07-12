@@ -22,24 +22,6 @@
 
 ---
 
-## 📦 安裝與使用指南 (Chrome)
-
-由於此套件為開發者展示版本，請依照以下步驟手動載入：
-
-1. **下載套件**：
-   - 下載最新釋出的 `BiliGemi-0.1.0.zip` 並解壓縮到您的電腦中。
-2. **開啟擴充功能管理頁面**：
-   - 在 Chrome 瀏覽器網址列輸入 `chrome://extensions/` 並按下 Enter。
-3. **啟用開發者模式**：
-   - 開啟右上角的「**開發者模式**」(Developer mode) 開關。
-4. **載入擴充功能**：
-   - 點選左上角的「**載入解壓縮的擴充功能**」(Load unpacked)。
-   - 選擇解壓縮後的 `extension` 資料夾。
-5. **開始使用**：
-   - 打開任意 Bilibili 影片頁面，在側邊欄開啟 BiliGemi 並開始享受 AI 摘要服務！
-
----
-
 ## 📬 聯絡我們 (Contact)
 若有任何建議或問題，歡迎隨時聯絡我們：
 - **GitHub Profile**：[@workingyuanyuan](https://github.com/workingyuanyuan)
