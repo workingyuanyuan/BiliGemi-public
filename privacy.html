@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiliGemi 隱私權政策 | Privacy Policy</title>
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent-primary: #8b5cf6;
+            --accent-glow: rgba(139, 92, 246, 0.15);
+            --accent-hover: #a78bfa;
+            --gradient-bg: radial-gradient(circle at 50% -20%, #1e1b4b 0%, #0b0c10 60%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            background-image: var(--gradient-bg);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-hover));
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-glow);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 16px;
+            padding: 12px 20px;
+            margin-bottom: 16px;
+        }
+
+        .logo-text {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, #fff 30%, var(--accent-hover) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .meta-info {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .meta-item strong {
+            color: var(--text-primary);
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--card-border) 20%, var(--card-border) 80%, transparent);
+            margin: 32px 0;
+        }
+
+        section {
+            margin-bottom: 32px;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 18px;
+            background: var(--accent-primary);
+            border-radius: 2px;
+        }
+
+        p, ul {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 14px;
+        }
+
+        ul li {
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        ul li::before {
+            content: "•";
+            color: var(--accent-primary);
+            position: absolute;
+            left: -14px;
+            top: 0;
+        }
+
+        a {
+            color: var(--accent-hover);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 48px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 20px 12px;
+            }
+            .container {
+                padding: 24px 20px;
+                border-radius: 16px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .meta-info {
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <span class="logo-text">BiliGemi</span>
+            </div>
+            <h1>BiliGemi 隱私權政策</h1>
+            <div class="meta-info">
+                <span class="meta-item">生效日期 (Effective Date): <strong>July 12, 2026</strong></span>
+            </div>
+        </header>
+
+        <div class="divider"></div>
+
+        <section>
+            <h2>1. 前言 / Introduction</h2>
+            <p>歡迎使用 BiliGemi！我們非常重視您的個人隱私。本隱私權政策旨在說明本瀏覽器擴充功能（以下簡稱「本軟體」）如何處理、儲存及保護您的資料。</p>
+            <p>Welcome to BiliGemi! We value your privacy. This Privacy Policy details how this browser extension processes, stores, and protects your information.</p>
+        </section>
+
+        <section>
+            <h2>2. 資料收集與使用 / Information Collection and Use</h2>
+            <p>BiliGemi 是一款<strong>極致輕量化且注重隱私</strong>的輔助工具。我們採取以下原則處理您的資料：</p>
+            <ul>
+                <li><strong>本機端運作 (Local Execution)：</strong> 所有的影片字幕與評論摘要邏輯皆在您的瀏覽器本機端執行。我們不會收集、記錄或上傳您的任何瀏覽紀錄、Bilibili 帳號資訊或個人識別資料。</li>
+                <li><strong>AI API 通訊 (AI API Communication)：</strong> 當您使用摘要功能時，本軟體會將字幕或評論文字傳送給您所選擇的 AI 模型提供商（例如 Chrome 內建 AI 或是您自行配置的 OpenAI、DeepSeek、GLM、Moonshot、OpenRouter 等 API 伺服器）。此等通訊直接發生在您的瀏覽器與 API 提供商之間，不經過我們的任何中轉伺服器。</li>
+                <li><strong>本地儲存 (Local Storage)：</strong> 您的 API 金鑰（API Key）、自訂伺服器位址及個人設定僅儲存於您的瀏覽器本地儲存區 (chrome.storage) 中。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. 第三方服務 / Third-Party Services</h2>
+            <p>本軟體會與以下第三方服務進行直接通訊：</p>
+            <ul>
+                <li><strong>Bilibili API：</strong> 用於獲取您目前觀看影片的字幕與觀眾評論。</li>
+                <li><strong>您配置的 AI 服務商：</strong> 用於進行內容摘要與分析。請參閱您所選 AI 服務商（如 OpenAI、DeepSeek 等）的隱私權政策，以了解他們如何處理您的資料。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. 政策變更 / Policy Changes</h2>
+            <p>我們可能會不定期更新此隱私權政策。任何變更都會直接發布在此網頁上，並更新上方的生效日期。建議您定期檢視本頁面以獲取最新資訊。</p>
+        </section>
+
+        <section>
+            <h2>5. 聯絡我們 / Contact Us</h2>
+            <p>如果您對本隱私權政策有任何疑問，歡迎透過以下方式與我們聯絡：</p>
+            <ul>
+                <li>GitHub 個人檔案：<a href="https://github.com/workingyuanyuan" target="_blank">workingyuanyuan</a></li>
+                <li>電子郵件 (Email)：<a href="mailto:workingyuanyuan@gmail.com">workingyuanyuan@gmail.com</a></li>
+            </ul>
+        </section>
+
+        <div class="divider"></div>
+
+        <footer>
+            <p>© 2026 BiliGemi. Developed by workingyuanyuan. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
