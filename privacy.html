@@ -166,6 +166,16 @@
             top: 0;
         }
 
+        code {
+            font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+            font-size: 0.9em;
+            background: rgba(139, 92, 246, 0.12);
+            border: 1px solid rgba(139, 92, 246, 0.25);
+            border-radius: 6px;
+            padding: 1px 6px;
+            color: var(--text-primary);
+        }
+
         a {
             color: var(--accent-hover);
             text-decoration: none;
@@ -212,7 +222,7 @@
             </div>
             <h1>BiliGemi 隱私權政策</h1>
             <div class="meta-info">
-                <span class="meta-item">生效日期 (Effective Date): <strong>July 12, 2026</strong></span>
+                <span class="meta-item">生效日期 (Effective Date): <strong>July 27, 2026</strong></span>
             </div>
         </header>
 
@@ -244,12 +254,33 @@
         </section>
 
         <section>
-            <h2>4. 政策變更 / Policy Changes</h2>
+            <h2>4. 本機摘要快取 / Local Summary Cache</h2>
+            <p>為避免重複產生相同影片的摘要，本擴充會將已產生的摘要文字暫存於瀏覽器本機儲存空間（<code>chrome.storage.local</code>），以影片 BV 號與分P編號作為索引。此快取：</p>
+            <ul>
+                <li>僅儲存於使用者自己的裝置，不會上傳至任何伺服器，開發者無法存取；</li>
+                <li>保存期限為 3 天，逾期自動刪除，並最多保留 50 部影片的記錄，超出者自動淘汰；</li>
+                <li>移除本擴充功能時會隨之一併清除。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Gemini 網頁版模式 / Gemini Web Mode</h2>
+            <p>當使用者選用「Gemini 網頁版」摘要模式時，影片字幕與評論文字會傳送至 <code>gemini.google.com</code>，並由使用者自己既有的 Gemini 登入狀態進行驗證。相關說明：</p>
+            <ul>
+                <li>本擴充不會讀取、儲存或傳送任何 Cookie、憑證或帳號密碼，亦未申請 <code>cookies</code> 權限；驗證完全依賴瀏覽器標準的請求憑證機制自動完成；</li>
+                <li>傳送出去的內容僅為影片字幕、評論文字與使用者設定的提示詞；</li>
+                <li>此模式下產生的對話會保存在使用者自己的 Google／Gemini 帳號中，可於 Gemini 對話清單與 Google 我的活動頁面查閱或刪除，開發者無法存取；</li>
+                <li>這些資料的後續處理適用 Google 的隱私權政策，不在本擴充控制範圍內。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. 政策變更 / Policy Changes</h2>
             <p>我們可能會不定期更新此隱私權政策。任何變更都會直接發布在此網頁上，並更新上方的生效日期。建議您定期檢視本頁面以獲取最新資訊。</p>
         </section>
 
         <section>
-            <h2>5. 聯絡我們 / Contact Us</h2>
+            <h2>7. 聯絡我們 / Contact Us</h2>
             <p>如果您對本隱私權政策有任何疑問，歡迎透過以下方式與我們聯絡：</p>
             <ul>
                 <li>GitHub 個人檔案：<a href="https://github.com/workingyuanyuan" target="_blank">workingyuanyuan</a></li>
